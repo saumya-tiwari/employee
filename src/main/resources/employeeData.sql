@@ -1,0 +1,1 @@
+db.employee.insert( { id: "10001", name: "Saumya",age:30 } )
