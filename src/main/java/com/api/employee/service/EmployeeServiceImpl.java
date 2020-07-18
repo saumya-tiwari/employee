@@ -4,7 +4,6 @@ import com.api.employee.constants.Constants;
 import com.api.employee.domain.Employee;
 import com.api.employee.exception.EmployeeApiException;
 import com.api.employee.repository.EmployeeRepository;
-import com.mongodb.client.result.DeleteResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -40,8 +39,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public boolean deleteEmployee(String id) throws EmployeeApiException {
-        DeleteResult deleteResult = employeeRepository.deleteEmployee(id);
-        return deleteResult.wasAcknowledged();
+    public String deleteEmployee(String id) throws EmployeeApiException {
+        return employeeRepository.deleteEmployee(id);
     }
 }

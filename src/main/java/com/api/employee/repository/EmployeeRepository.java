@@ -4,9 +4,7 @@ package com.api.employee.repository;
 import com.api.employee.constants.Constants;
 import com.api.employee.domain.Employee;
 import com.api.employee.exception.EmployeeApiException;
-import com.mongodb.client.result.DeleteResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -58,14 +56,13 @@ public class EmployeeRepository {
 
     }
 
-    public DeleteResult deleteEmployee(String id) throws EmployeeApiException {
+    public String deleteEmployee(String id) throws EmployeeApiException {
 
         try {
-            DeleteResult employee = null;
             Query query = new Query();
             query.addCriteria(Criteria.where(Constants.ID).is(id));
-            employee = this.apiMongoTemplate.remove(Employee.class, Constants.COLLECTION_NAME);
-            return employee;
+            this.apiMongoTemplate.findAllAndRemove(query, Constants.COLLECTION_NAME);
+            return "deleted";
         } catch (Exception ex){
             throw new EmployeeApiException(Constants.MONG0_ERRORCODE,Constants.MONGO_EXCEPTION_MSG,Constants.SOURCE,ex);
         }

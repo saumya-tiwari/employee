@@ -2,13 +2,12 @@ package com.api.employee.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
 
 import java.math.BigInteger;
 
 public class Employee {
 
-    @JsonProperty("id")
+    @JsonProperty("employeeId")
     private BigInteger employeeId;
     private String name;
 

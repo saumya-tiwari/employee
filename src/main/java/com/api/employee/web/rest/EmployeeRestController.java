@@ -58,7 +58,7 @@ public class EmployeeRestController {
 
     @DeleteMapping(value="/employee/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity deleteEmployee(@PathVariable String id)throws EmployeeApiException {
-        Boolean result;
+        String result;
         try{
             result = employeeService.deleteEmployee(id);
         }catch(EmployeeApiException apiEx) {

@@ -16,5 +16,5 @@ public interface EmployeeService {
 
     List<Employee> getAllEmployee() throws EmployeeApiException;
 
-    boolean deleteEmployee(String id) throws EmployeeApiException;
+    String deleteEmployee(String id) throws EmployeeApiException;
 }
