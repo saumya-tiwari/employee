@@ -1,19 +1,28 @@
 package com.api.employee.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import java.math.BigInteger;
+
 public class Employee {
 
-    private Long id;
+    @JsonProperty("id")
+    private BigInteger employeeId;
     private String name;
+
+    public BigInteger getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(BigInteger employeeId) {
+        this.employeeId = employeeId;
+    }
+
     private int age;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
