@@ -35,7 +35,7 @@ public class EmployeeRepository {
     public List<Employee> searchEmployee(String id) throws EmployeeApiException {
 
         try {
-            List<Employee> employees = null;
+            List<Employee> employees;
             Query query = new Query();
             query.addCriteria(Criteria.where(Constants.ID).is(id));
             employees = this.apiMongoTemplate.find(query, Employee.class, Constants.COLLECTION_NAME);

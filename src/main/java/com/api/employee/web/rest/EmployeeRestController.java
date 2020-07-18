@@ -18,7 +18,7 @@ public class EmployeeRestController {
     EmployeeService employeeService;
 
     @PostMapping(value="/employee", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity insertEmployee(@RequestBody @Validated Employee employee, @PathVariable String applicationType)throws EmployeeApiException {
+    public ResponseEntity insertEmployee(@RequestBody @Validated Employee employee)throws EmployeeApiException {
         String response;
         try{
             response = employeeService.insertEmployee(employee);
